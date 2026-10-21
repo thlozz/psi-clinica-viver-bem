@@ -9,8 +9,8 @@ Projeto de portfólio em **GRC**: uma Política de Segurança da Informação (P
 | Item | Descrição |
 | :--- | :--- |
 | Organização | Clínica Viver Bem (fictícia) |
-| Documento | [`PSI_Clinica_Viver_Bem_v1.1.md`](PSI_Clinica_Viver_Bem_v1.1.md) |
-| Versão | 1.1 (revisão de 08/10/2026) |
+| Documento | [`PSI_Clinica_Viver_Bem_v1.2.md`](PSI_Clinica_Viver_Bem_v1.2.md) |
+| Versão | 1.2 (revisão de 21/10/2026) |
 | Foco | Proteção de dados de saúde (LGPD), controle de acesso, senhas e MFA, incidentes e terceiros |
 
 ## Conteúdo da política
@@ -30,6 +30,8 @@ Projeto de portfólio em **GRC**: uma Política de Segurança da Informação (P
    - Descarte seguro
    - Terceiros e fornecedores
    - Gestão de incidentes
+   - Proteção contra phishing e ransomware (EDR, antiphishing, backup resiliente)
+   - Registro de logs, sincronização NTP e monitoramento
 5. **Política de senhas e autenticação (MFA)**
 6. Exceções
 7. Conformidade e sanções
@@ -54,8 +56,14 @@ A seção 9 da política relaciona cada diretriz aos **10 riscos** da matriz de 
 | 4.6 Backup e continuidade | R-02 | A.8.13, A.5.30 |
 | 4.7 Gestão de vulnerabilidades | R-05 | A.8.8 |
 | 5. Senhas e MFA | R-04, R-01 | A.5.17, A.8.5, A.8.2 |
+| 4.12 Phishing e ransomware | R-03, R-02 | A.8.7, A.8.13, A.6.3 |
+| 4.13 Logs e monitoramento | R-01, R-03, R-04 | A.8.15, A.8.16, A.8.17 |
 
 Tabela completa na seção 9 do documento.
+
+## Histórico de versões
+- **v1.2 (21/10/2026):** adiciona controles específicos para ransomware/phishing e requisitos de logs/monitoramento.
+- **v1.1 (08/10/2026):** política de credenciais, LGPD, papéis e rastreabilidade. O arquivo anterior permanece no histórico do repositório.
 
 ## Premissas e limitações
 
