@@ -224,7 +224,7 @@ A tabela relaciona cada seção desta política aos riscos da **Matriz de Riscos
 
 | 21/10/2026 | 1.2a | Inclusão dos quatro modelos fictícios vinculados às seções 4.2, 4.9, 4.11 e 6. | Equipe de GRC / TI (simulada) | Revisão documental simulada |
 | 21/10/2026 | 1.2b | Glossário de siglas e termos técnicos, incluindo MFA, EDR, DPO, ANPD, PEP, RBAC e NTP. | Equipe de GRC / TI (simulada) | Revisão documental simulada |
-| 21/10/2026 | 1.2c | Esclarecimento sobre credenciais técnicas legadas, prazos de incidente e correção da tabela de revisões. | Equipe de GRC / TI (simulada) | Revisão documental simulada |
+| 21/10/2026 | 1.2c | Esclarecimento sobre credenciais técnicas legadas, prazos de incidente e correção da tabela de revisões. | Equipe de GRC / TI (simulada) | Revisão documental simulada |\n| 21/10/2026 | 1.2d | Inclusão do validador da rastreabilidade, verificação de links e lint Markdown no fluxo de integração contínua. | Equipe de GRC / TI (simulada) | Revisão documental simulada |\n| 21/10/2026 | 1.2e | Configuração da geração de PDF em releases, com capa, sumário e paginação. | Equipe de GRC / TI (simulada) | Revisão documental simulada |
 
 ---
 
