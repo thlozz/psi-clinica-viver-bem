@@ -1,0 +1,32 @@
+name: Publicar PDF da PSI
+on:
+  release:
+    types: [published]
+permissions:
+  contents: write
+jobs:
+  pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Instalar Pandoc e LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-xetex texlive-latex-extra texlive-fonts-recommended
+      - name: Gerar PDF com capa, sumário e páginas numeradas
+        run: |
+          pandoc PSI_Clinica_Viver_Bem_v1.2.md \
+            --from markdown --pdf-engine=xelatex \
+            --toc --toc-depth=3 --number-sections \
+            -V lang=pt-BR -V documentclass=report \
+            -V geometry:margin=2.5cm -V fontsize=11pt \
+            -V title='Política de Segurança da Informação' \
+            -V subtitle='Clínica Viver Bem — cenário fictício' \
+            -V author='Projeto de portfólio GRC' \
+            -V date='Versão 1.2' \
+            -H .github/pdf-cabecalho.tex \
+            -o PSI_Clinica_Viver_Bem_v1.2.pdf
+      - name: Anexar PDF ao release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${{ github.event.release.tag_name }}" PSI_Clinica_Viver_Bem_v1.2.pdf --clobber
