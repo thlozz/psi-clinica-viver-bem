@@ -7,22 +7,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Conferir documento e rastreabilidade
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import re
-          raiz = Path(".")
-          readme = (raiz / "README.md").read_text(encoding="utf-8")
-          politica = raiz / "PSI_Clinica_Viver_Bem_v1.2.md"
-          assert politica.is_file(), "PSI v1.2 não encontrada"
-          texto = politica.read_text(encoding="utf-8")
-          assert "PSI_Clinica_Viver_Bem_v1.2.md" in readme
-          for secao in ("4.12.", "4.13.", "## 9.", "## 10."):
-              assert secao in texto, f"Seção ausente: {secao}"
-          for numero in range(1, 11):
-              risco = f"R-{numero:02d}"
-              assert risco in texto, f"Risco sem referência: {risco}"
-          assert "LICENSE" in [p.name for p in raiz.iterdir()]
-          print("Documento, seções e referências aos dez riscos encontrados.")
-          PY
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validar rastreabilidade
+        run: python scripts/validar_rastreabilidade.py
+      - name: Validar links locais
+        run: python scripts/validar_links.py
+      - name: Validar links externos
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: '--no-progress --accept 200,206,429 --max-retries 2 --timeout 20 README.md PSI_Clinica_Viver_Bem_v1.2.md anexos/*.md'
+          fail: true
+      - name: Verificar estilo Markdown
+        uses: DavidAnson/markdownlint-cli2-action@v19
+        with:
+          globs: '**/*.md'
