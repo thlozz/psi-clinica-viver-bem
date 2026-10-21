@@ -1,0 +1,28 @@
+name: Validar documentação
+on:
+  push:
+  pull_request:
+jobs:
+  validar-politica:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Conferir documento e rastreabilidade
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          raiz = Path(".")
+          readme = (raiz / "README.md").read_text(encoding="utf-8")
+          politica = raiz / "PSI_Clinica_Viver_Bem_v1.2.md"
+          assert politica.is_file(), "PSI v1.2 não encontrada"
+          texto = politica.read_text(encoding="utf-8")
+          assert "PSI_Clinica_Viver_Bem_v1.2.md" in readme
+          for secao in ("4.12.", "4.13.", "## 9.", "## 10."):
+              assert secao in texto, f"Seção ausente: {secao}"
+          for numero in range(1, 11):
+              risco = f"R-{numero:02d}"
+              assert risco in texto, f"Risco sem referência: {risco}"
+          assert "LICENSE" in [p.name for p in raiz.iterdir()]
+          print("Documento, seções e referências aos dez riscos encontrados.")
+          PY
