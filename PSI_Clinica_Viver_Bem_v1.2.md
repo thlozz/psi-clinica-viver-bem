@@ -77,7 +77,7 @@ Informações **Restritas** só podem ser armazenadas e transmitidas em sistemas
 
 ### 4.2. Controle de Acesso e Gestão de Ativos
 * **Menor privilégio:** o acesso aos sistemas (ex.: PEP) é concedido estritamente conforme a necessidade da função (*need-to-know*).
-* **Concessão e revogação:** o acesso deve ser solicitado e aprovado formalmente. Em caso de desligamento ou mudança de função, deve ser revogado ou ajustado imediatamente.
+* **Concessão e revogação:** o acesso deve ser solicitado e aprovado formalmente. Em caso de desligamento ou mudança de função, deve ser revogado ou ajustado imediatamente. Registrar a execução com o [checklist fictício de acessos](anexos/checklist-acessos.md).
 * **Revisão de acessos:** o Responsável por GRC revisa os acessos ao PEP e a sistemas críticos, no mínimo, a cada 6 meses.
 * **Registro de acessos (logs):** acessos ao PEP devem ser registrados e passíveis de auditoria.
 * **Contas administrativas:** devem ser nominais e separadas da conta de uso diário, com MFA obrigatório. O uso de contas administrativas genéricas ou compartilhadas é proibido.
@@ -113,7 +113,7 @@ Informações **Restritas** só podem ser armazenadas e transmitidas em sistemas
 
 ### 4.9. Descarte Seguro de Equipamentos e Mídias
 * Equipamentos e mídias que armazenaram dados da clínica só podem ser descartados, doados ou reutilizados após sanitização ou destruição segura (referência: NIST SP 800-88).
-* Cada descarte deve gerar registro ou laudo de sanitização.
+* Cada descarte deve gerar registro ou laudo de sanitização. Utilizar o [checklist e modelo fictício de laudo](anexos/checklist-descarte-seguro.md).
 
 ### 4.10. Terceiros e Fornecedores
 * Fornecedores com acesso a dados ou sistemas da clínica passam por avaliação de segurança e privacidade (*due diligence*) antes da contratação.
@@ -122,8 +122,8 @@ Informações **Restritas** só podem ser armazenadas e transmitidas em sistemas
 
 ### 4.11. Gestão de Incidentes de Segurança
 * Qualquer anomalia, tentativa de acesso não autorizado, e-mail suspeito (*phishing*) ou perda de dispositivo deve ser reportado em até **2 horas** à equipe de TI/GRC.
-* Todo incidente deve ser registrado, analisado e tratado, com lições aprendidas documentadas.
-* Quando o incidente puder acarretar risco ou dano relevante aos titulares de dados pessoais, o **DPO** deve conduzir a comunicação à ANPD e aos titulares, conforme a LGPD (art. 48) e a regulamentação da ANPD em vigor. O prazo atualmente previsto é de **3 dias úteis**, e deve ser confirmado na regulamentação vigente a cada revisão desta política.
+* Todo incidente deve ser registrado, analisado e tratado, com lições aprendidas documentadas. Utilizar o [modelo fictício de registro de incidente](anexos/registro-incidente.md).
+* Quando o incidente puder acarretar risco ou dano relevante aos titulares de dados pessoais, o **DPO** deve conduzir a comunicação à ANPD e aos titulares, conforme a LGPD (art. 48) e a regulamentação da ANPD em vigor. O prazo regulatório mencionado neste cenário é de **3 dias úteis**, sujeito à confirmação da norma vigente, do marco inicial e das hipóteses aplicáveis pelo DPO/jurídico. Esse prazo é distinto do reporte interno fictício de 2 horas.
 
 ### 4.12. Proteção contra Phishing e Ransomware
 * **Proteção de endpoints:** a TI deve manter EDR/antimalware corporativo atualizado, com monitoramento de alertas e resposta documentada.
@@ -159,7 +159,7 @@ O **MFA é obrigatório** para:
 4. **Todas as contas administrativas.**
 
 ### 5.3. Troca, Bloqueio e Comprometimento
-* **Sem troca periódica obrigatória:** as senhas não expiram em intervalos fixos. A troca é obrigatória **imediatamente** quando houver suspeita ou confirmação de comprometimento, em caso de aparição em lista de vazamento ou após desligamento de quem conhecia a senha (ex.: contas compartilhadas de sistema).
+* **Sem troca periódica obrigatória:** as senhas não expiram em intervalos fixos. A troca é obrigatória **imediatamente** quando houver suspeita ou confirmação de comprometimento, em caso de aparição em lista de vazamento ou após desligamento de quem conhecia a senha (por exemplo, segredos de contas técnicas legadas, que devem ser individualizados ou substituídos; isso não autoriza contas administrativas compartilhadas).
 * **Bloqueio de conta:** a conta será bloqueada temporariamente por 15 minutos após **5 tentativas incorretas** consecutivas.
 * **Contas de serviço:** devem ter senhas longas e únicas, armazenadas em cofre e com responsável nominal.
 
@@ -173,7 +173,7 @@ O **MFA é obrigatório** para:
 ## 6. Exceções
 
 * Qualquer exceção a esta política deve ser solicitada por escrito, com justificativa, risco associado, medidas compensatórias e prazo de validade.
-* A exceção só é válida após aprovação da Direção e registro pelo Responsável por GRC, que deve revisá-la ao final do prazo.
+* A exceção só é válida após aprovação da Direção e registro pelo Responsável por GRC, que deve revisá-la ao final do prazo. Usar o [modelo fictício de solicitação de exceção](anexos/solicitacao-excecao.md).
 
 ---
 
@@ -221,3 +221,36 @@ A tabela relaciona cada seção desta política aos riscos da **Matriz de Riscos
 | 08/10/2026 | 1.1 | Política de senhas alinhada ao NIST SP 800-63B (sem rotação forçada, sem regras de composição, MFA para contas administrativas); inclusão do DPO e da comunicação de incidentes à ANPD; segregação de funções entre TI e GRC; novas seções (classificação, rede, backup, vulnerabilidades, desenvolvimento seguro, descarte, terceiros, exceções, revisão); tabela de rastreabilidade com a matriz de riscos; correções de redação. | Equipe de GRC / TI | Direção |
 
 | 21/10/2026 | 1.2 | Inclusão de proteção contra phishing e ransomware, EDR, backups resilientes, registro e monitoramento de eventos; atualização da rastreabilidade. | Equipe de GRC / TI | Direção (simulada) |
+
+| 21/10/2026 | 1.2a | Inclusão dos quatro modelos fictícios vinculados às seções 4.2, 4.9, 4.11 e 6. | Equipe de GRC / TI (simulada) | Revisão documental simulada |
+| 21/10/2026 | 1.2b | Glossário de siglas e termos técnicos, incluindo MFA, EDR, DPO, ANPD, PEP, RBAC e NTP. | Equipe de GRC / TI (simulada) | Revisão documental simulada |
+| 21/10/2026 | 1.2c | Esclarecimento sobre credenciais técnicas legadas, prazos de incidente e correção da tabela de revisões. | Equipe de GRC / TI (simulada) | Revisão documental simulada |
+
+---
+
+## 11. Glossário
+
+| Sigla / termo | Definição |
+| :--- | :--- |
+| **PSI** | Política de Segurança da Informação. |
+| **GRC** | Governança, Riscos e Conformidade. |
+| **TI** | Tecnologia da Informação. |
+| **SI** | Segurança da Informação. |
+| **LGPD** | Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018). |
+| **MFA** | Autenticação multifator: exige fatores distintos de autenticação. |
+| **EDR** | *Endpoint Detection and Response*: detecção e resposta a ameaças em dispositivos. |
+| **DPO** | *Data Protection Officer*: encarregado pelo tratamento de dados pessoais. |
+| **ANPD** | Agência Nacional de Proteção de Dados. |
+| **PEP** | Prontuário Eletrônico do Paciente. |
+| **RBAC** | *Role-Based Access Control*: controle de acesso baseado em papéis. |
+| **NTP** | *Network Time Protocol*: protocolo de sincronização de relógios. |
+| **MDM** | *Mobile Device Management*: gestão de dispositivos móveis. |
+| **VPN** | *Virtual Private Network*: rede privada virtual. |
+| **TLS** | *Transport Layer Security*: protocolo de proteção de comunicações. |
+| **HTTPS** | HTTP protegido por TLS. |
+| **DDoS** | Negação de serviço distribuída. |
+| **SLA** | *Service Level Agreement*: acordo de nível de serviço. |
+| **NIST** | Instituto Nacional de Padrões e Tecnologia dos Estados Unidos. |
+| **ISO/IEC 27001:2022** | Norma internacional de requisitos para sistemas de gestão de segurança da informação. |
+| **Risco residual** | Risco remanescente após a aplicação dos controles considerados. |
+| **Sanitização** | Processo de remoção ou inviabilização da recuperação de dados em mídias. |
