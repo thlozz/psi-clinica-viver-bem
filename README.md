@@ -38,6 +38,7 @@ Projeto de portfólio em **GRC**: uma Política de Segurança da Informação (P
 8. Revisão e vigência
 9. **Rastreabilidade** (política × riscos × controles ISO 27001)
 10. Histórico de revisões
+11. Glossário de siglas e termos técnicos
 
 ## Decisões de projeto
 
@@ -61,14 +62,33 @@ A seção 9 da política relaciona cada diretriz aos **10 riscos** da matriz de 
 
 Tabela completa na seção 9 do documento.
 
+## Anexos operacionais fictícios
+
+- [Solicitação de exceção — seção 6](anexos/solicitacao-excecao.md)
+- [Checklist de acessos — seção 4.2](anexos/checklist-acessos.md)
+- [Registro de incidente, DPO e ANPD — seção 4.11](anexos/registro-incidente.md)
+- [Descarte seguro e laudo de sanitização — seção 4.9](anexos/checklist-descarte-seguro.md)
+
+## Validação automática
+
+A validação é executada em pushes e pull requests: rastreabilidade da seção 9, links locais e externos e estilo Markdown. Os links externos dependem da disponibilidade dos respectivos sites.
+
+```bash
+python scripts/validar_rastreabilidade.py
+python scripts/validar_links.py
+```
+
+A cada **release publicado**, o GitHub Actions gera um PDF com Pandoc/XeLaTeX, capa, sumário e numeração de páginas e anexa o arquivo ao release. O PDF é um artefato de publicação; o Markdown continua sendo a fonte editável.
+
 ## Histórico de versões
+- **v1.2a–c (21/10/2026):** anexos fictícios, glossário, esclarecimento de prazos e credenciais técnicas, validações automatizadas e PDF de release.
 - **v1.2 (21/10/2026):** adiciona controles específicos para ransomware/phishing e requisitos de logs/monitoramento.
 - **v1.1 (08/10/2026):** política de credenciais, LGPD, papéis e rastreabilidade. O arquivo anterior permanece no histórico do repositório.
 
 ## Premissas e limitações
 
-- Prazos e periodicidades (ex.: correção de vulnerabilidades críticas em 7 dias, testes de restauração a cada 6 meses) são **valores fictícios**, definidos para fins de exemplo.
-- O prazo de comunicação de incidentes à ANPD (3 dias úteis) deve ser **confirmado na regulamentação vigente** a cada revisão.
+- Todos os prazos, periodicidades e valores operacionais do cenário (ex.: correção de vulnerabilidades críticas em 7 dias, testes de restauração a cada 6 meses) são **valores fictícios**, definidos para fins de exemplo.
+- O prazo de comunicação de incidentes à ANPD mencionado no cenário (3 dias úteis) deve ser **confirmado na regulamentação vigente** a cada revisão, incluindo hipóteses de comunicação e marco inicial. O prazo de reporte interno de 2 horas é uma regra operacional fictícia.
 - Não substitui uma política elaborada com a participação da área jurídica, do DPO e da direção de uma organização real.
 - As referências ao Anexo A seguem a numeração da ISO/IEC 27001:2022.
 
